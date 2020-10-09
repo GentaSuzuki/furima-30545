@@ -1,24 +1,58 @@
-# README
+users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type   | Options    |
+| --------------- | ------ | ---------- |
+| nickname        | string | null:false |
+| email           | string | null:false |
+| password        | string | null:false |
+| last_name       | string | null:false |
+| first_name      | string | null:false |
+| last_name_kana  | string | null:false |
+| first_name_kana | string | null:false |
+| birth_date      | string | null:false |
 
-Things you may want to cover:
+Association
 
-* Ruby version
+- has_many :items
+- has_many :orders
 
-* System dependencies
+items テーブル
 
-* Configuration
+| Column  | Type       | Options                      |
+| ------- | ---------- | ---------------------------- |
+| name    | string     | null:false                   |
+| genre   | integer    | null:false                   |
+| price   | integer    | null:false                   |
+| user    | references | null:false, foreign_key:true |
 
-* Database creation
+Association
 
-* Database initialization
+- belongs_to :users
+- has_one :orders
 
-* How to run the test suite
+orders テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column | Type       | Options                       |
+| ------ | ---------- | ----------------------------- |
+| user   | references | null:false, foreign_key: true |
+| item   | references | null:false, foreign_key: true |
 
-* Deployment instructions
+Association
 
-* ...
+- has_one :addresses
+- belongs_to :users
+
+addresses テーブル
+
+| Column          | Type       |
+| --------------- | ---------- |
+| post_code       | string     |
+| prefectures_id  | integer    |
+| city            | string     |
+| house_number    | string     |
+| build_number    | string     |
+| order           | references |
+
+Association
+
+- belongs_to :order
