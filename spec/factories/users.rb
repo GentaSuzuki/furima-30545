@@ -8,8 +8,6 @@ FactoryBot.define do
     first_name         { '源太' }
     last_name_kana     { 'スズキ' }
     first_name_kana    { 'ゲンタ' }
-    # name_zenkaku       {"鈴木源太"}
-    # hurigana_zenkaku   {"スズキゲンタ"}
     birth_date         { '1999-10-20' }
   end
 end
