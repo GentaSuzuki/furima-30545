@@ -75,10 +75,5 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than 9999999')
     end
-
-    # it '販売価格は半角数字のみの保存であること'do
-    # @item.price = "９９９"
-    # @item.valid?
-    # expect(@item.errors.full_messages).to include("Price is invalid input half-width characters")
   end
 end
