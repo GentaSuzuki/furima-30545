@@ -17,8 +17,7 @@ class Item < ApplicationRecord
   validates :postage_id, presence: true
   validates :prefecture_id, presence: true
   validates :day_ship_id, presence: true
-  validates :price, presence: true, numericality: { greater_than: 300, less_than: 9_999_999 }
-  # validates :price, format: { with: /\A[0-9]+\z/i, message: 'is invalid. Input half-width characters.' }
+  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10000000 }
   validates :category_id, numericality: { other_than: 0 }
   validates :condition_id, numericality: { other_than: 0 }
   validates :postage_id, numericality: { other_than: 0 }
