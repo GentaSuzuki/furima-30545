@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   validates :postage_id, presence: true
   validates :prefecture_id, presence: true
   validates :day_ship_id, presence: true
-  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10000000 }
+  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10_000_000 }
   validates :category_id, numericality: { other_than: 0 }
   validates :condition_id, numericality: { other_than: 0 }
   validates :postage_id, numericality: { other_than: 0 }
