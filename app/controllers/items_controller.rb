@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
-  before_action :item_find, only: [:edit,:update]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :item_find, only: [:edit, :update, :destroy]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -23,9 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-     if current_user.id != @item.user_id
-      return redirect_to root_path
-     end
+    return redirect_to root_path if current_user.id != @item.user_id
   end
 
   def update
@@ -37,6 +35,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.id == @item.user_id
+      @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   private
 
