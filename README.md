@@ -55,7 +55,7 @@ addresses テーブル
 | Column          | Type       | Option                       |
 | --------------- | ---------- | ---------------------------- |
 | post_code       | string     | null:false                   |
-| prefectures_id  | integer    | null:false, foreign_key:true |
+| prefecture_id   |  integer    | null:false, foreign_key:true |
 | city            | string     | null:false                   |
 | house_number    | string     | null:false                   |
 | build_number    | string     |                              |
