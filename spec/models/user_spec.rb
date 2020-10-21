@@ -51,13 +51,13 @@ RSpec.describe User, type: :model do
     it 'パスワードは、数字のみの入力ができない' do
       @user.password = '111111'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Encrypted password is invalid. Input half-width characters.')
+      expect(@user.errors.full_messages).to include('Password is invalid. Input half-width characters.')
     end
 
     it 'パスワードは、英字のみの場合登録できない' do
       @user.password = 'aaaaaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Encrypted password is invalid. Input half-width characters.')
+      expect(@user.errors.full_messages).to include('Password is invalid. Input half-width characters.')
     end
 
     it 'passwordが存在してもencrypted_passwordが空では登録できないこと' do
