@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item_tag =ItemsTag.new
   end
 
   def create
@@ -17,6 +18,7 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+    @item_tag = ItemsTag.new(item_tag_params)
   end
 
   def show
@@ -48,10 +50,15 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :image, :category_id, :condition_id, :postage_id, :prefecture_id, :day_ship_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :image, :category_id, :condition_id, :postage_id, :prefecture_id, :day_ship_id, :price,:tag_name,:tag).merge(user_id: current_user.id)
   end
 
   def item_find
     @item = Item.find(params[:id])
   end
+
+  # def item_tag_params
+  #   params(:item_tag).permit(:tag_name,:tag)
+  # end
+
 end
