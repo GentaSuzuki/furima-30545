@@ -69,3 +69,4 @@ gem 'active_hash'
 gem 'payjp'
 gem  'rails-i18n'
 gem 'ransack'
+gem "aws-sdk-s3", require: false
