@@ -89,6 +89,10 @@
   margin-bottom: 15px;
 }
 
+.image-view{
+  width:  50vw;
+  height: 50vh;  
+}
 /* /出品画像 */
 
 /* 商品名と商品説明 */
@@ -227,3 +231,4 @@
 .inc {
   font-size: 13px;
 }
+
