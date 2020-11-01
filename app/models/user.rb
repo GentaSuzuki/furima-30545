@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :last_name_kana,  format: { with: /\A[ァ-ヶー－]+\z/, message: 'を全角で入力してださい' }
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'を全角で入力してください' }
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }
-    validates :encrypted_password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '確認用パスワードを入力してください' }
+    validates :password_confirmation, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '確認用パスワードを入力してください' }
   end
   validates :birth_date, presence: true
 

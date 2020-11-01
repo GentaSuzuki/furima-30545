@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   has_one    :order
   has_many_attached :images
 
-  validates :image, presence: true
+  validates :images, presence: true
   validates :description, presence: true
   validates :name, presence: true
   validates :category_id, presence: true

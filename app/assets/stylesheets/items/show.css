@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .item-box>.name {
@@ -203,4 +204,15 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.item-img-content{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-box-img{
+  margin-bottom: 10px;
 }
