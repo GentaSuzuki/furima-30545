@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day_ship
   belongs_to :user
   has_one    :order
-  has_one_attached :image
+  has_many_attached :images
 
-  validates :image, presence: true
+  validates :images, presence: true
   validates :description, presence: true
   validates :name, presence: true
   validates :category_id, presence: true
