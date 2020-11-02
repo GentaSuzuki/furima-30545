@@ -1,7 +1,7 @@
 class ItemsTag
 
   include ActiveModel::Model
-  attr_accessor :tag_name,:name,:description,:images,:category_id,:condition_id,:postage_id,:prefecture_id,:day_ship_id,:price,:user_id
+  attr_accessor :tag_name,:name,:description,:images,:category_id,:condition_id,:postage_id,:prefecture_id,:day_ship_id,:price,:user_id,:item_id
 
   with_options presence: true do
     validates :tag_name
@@ -21,7 +21,7 @@ class ItemsTag
   end
 
   def save
-    item = Item.create(name: name,description: description, category_id: category_id, condition_id: condition_id, postage_id: postage_id, prefecture_id: prefecture_id, day_ship_id: day_ship_id, price: price, user_id:user_id,images:images)
+    item = Item.create!(name: name,description: description, category_id: category_id, condition_id: condition_id, postage_id: postage_id, prefecture_id: prefecture_id, day_ship_id: day_ship_id, price: price, user_id:user_id)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.save
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
