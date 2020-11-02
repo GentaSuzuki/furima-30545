@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with(model: @item, url: items_path, local: true) do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
@@ -38,7 +38,14 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
+    </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+
+      <div class="tag-field", id="tag-field">
+      <%= f.label :tag_name, "タグ" %>
+      <%= f.text_field :tag_name, class:"input-tag",placeholder:"好きなタグをつけよう(例)#フリマ" %>
+      <div id="search-result"></div>
+
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明

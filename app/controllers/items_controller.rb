@@ -6,11 +6,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item =ItemsTag.new
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = ItemsTag.new(item_params)
     if @item.valid?
        @item.save
       redirect_to root_path
@@ -45,13 +45,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :postage_id, :prefecture_id, :day_ship_id, :price, images: []).merge(user_id: current_user.id)
+    params.require(:items_tag).permit(:name, :description, :category_id, :condition_id, :postage_id, :prefecture_id, :day_ship_id, :price,:tag_name,images: []).merge(user_id: current_user.id)
   end
 
   def item_find
     @item = Item.find(params[:id])
   end
+
 end
