@@ -1,4 +1,4 @@
-require 'rails_helper'
+0require 'rails_helper'
 
 RSpec.describe Address, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
