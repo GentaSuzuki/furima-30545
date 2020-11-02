@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day_ship
   belongs_to :user
   has_one    :order
+  has_many :item_tag_relations
+  has_many :tags, through: :item_tag_relations
   has_many_attached :images
 
   validates :images, presence: true
@@ -23,4 +25,5 @@ class Item < ApplicationRecord
   validates :postage_id, numericality: { other_than: 0,message:'---以外を選択してください' }
   validates :prefecture_id, numericality: { other_than: 0, message:'---以外を選択してください'}
   validates :day_ship_id, numericality: { other_than: 0, message:'---以外を選択してください' }
+
 end

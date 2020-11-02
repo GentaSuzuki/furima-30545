@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root to: "items#index"
   get 'items/seach'
    resources :items do
+    collection do
+      get 'search'
+    end
     resources :orders, only: [:index,:create]
    end
 end

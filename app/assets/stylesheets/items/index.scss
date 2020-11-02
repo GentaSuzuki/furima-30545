@@ -309,3 +309,16 @@ a {
 }
 
 /* //商品一覧 */
+
+// タグ付け
+.tag{
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+
+.tag-list{
+  margin-bottom: 10px;
+}
