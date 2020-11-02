@@ -24,8 +24,11 @@
         <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
        </div>
       <div class="image-list", id="image-list"></div>
+      <% if @item.images == nil %>
+      <% else %>
       <% @item.images.each do |image| %>
        <%= image_tag image, class: 'item-image' %>
+      <% end %>
       <% end %>
     </div>
     <%# /出品画像 %>
