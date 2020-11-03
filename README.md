@@ -21,7 +21,6 @@ items テーブル
 | Column        | Type       | Options                      |
 | ------------- | ---------- | ---------------------------- |
 | name          | string     | null:false                   |
-| tag           | string     |                              |
 | description   | text       | null:false                   |
 | price         | integer    | null:false                   |
 | user          | references | null:false, foreign_key:true |
