@@ -29,7 +29,7 @@ class ItemsTag
 
   def update
     item = Item.find(item_id)
-    item.update(name: name,description: description, category_id: category_id, condition_id: condition_id, postage_id: postage_id, prefecture_id: prefecture_id, day_ship_id: day_ship_id, price: price, user_id:user_id,images: images)
+    item.update!(name: name, description: description, category_id: category_id, condition_id: condition_id, postage_id: postage_id, prefecture_id: prefecture_id, day_ship_id: day_ship_id, price: price, user_id:user_id, images: images)
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.save
     item_tag = ItemTagRelation.find_by(item_id: item_id)
