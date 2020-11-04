@@ -4,9 +4,10 @@ class ItemsTag
   attr_accessor :tag_name,:name,:description,:images,:category_id,:condition_id,:postage_id,:prefecture_id,:day_ship_id,:price,:user_id,:item_id
 
   with_options presence: true do
+    validates :images
+    validates :name
     validates :tag_name
     validates :description
-    validates :name
     validates :category_id
     validates :condition_id
     validates :postage_id
