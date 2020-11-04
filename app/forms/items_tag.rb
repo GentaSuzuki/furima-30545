@@ -35,4 +35,10 @@ class ItemsTag
     item_tag = ItemTagRelation.find_by(item_id: item_id)
     item_tag.update(item_id: item.id, tag_id: tag.id)
   end
+
+  def destroy
+    item = Item.find(item_id)
+    item_tag = ItemTagRelation.find_by(item_id: item_id)
+    item_tag.destroy(item_id: item.id, tag_id: tag.id)
+  end
 end
