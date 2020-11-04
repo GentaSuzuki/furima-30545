@@ -14,11 +14,11 @@ class ItemsTag
     validates :prefecture_id
     validates :day_ship_id
     validates :price, numericality: { greater_than: 299, less_than: 10_000_000 }
-    validates :category_id, numericality: { other_than: 0,message:'---以外を選択してください' }
-    validates :condition_id, numericality: { other_than: 0,message:'---以外を選択してください' }
-    validates :postage_id, numericality: { other_than: 0,message:'---以外を選択してください' }
-    validates :prefecture_id, numericality: { other_than: 0, message:'---以外を選択してください'}
-    validates :day_ship_id, numericality: { other_than: 0, message:'---以外を選択してください' }
+    validates :category_id, numericality: { other_than: 0,message:'---は以外を選択してください' }
+    validates :condition_id, numericality: { other_than: 0,message:'---は以外を選択してください' }
+    validates :postage_id, numericality: { other_than: 0,message:'---は以外を選択してください' }
+    validates :prefecture_id, numericality: { other_than: 0, message:'---は以外を選択してください'}
+    validates :day_ship_id, numericality: { other_than: 0, message:'---は以外を選択してください' }
   end
 
   def save
